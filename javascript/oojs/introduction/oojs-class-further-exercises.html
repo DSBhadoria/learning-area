@@ -59,21 +59,33 @@
           // is 1, 2, or 3
           if(this.interests.length === 1) {
             string += this.interests[0] + '.';
-          } else if(this.interests.length === 2) {
+          } 
+          //Commented below else if because covering >=2 interests in the one else only...
+          /*
+          else if(this.interests.length === 2) {
             string += this.interests[0] + ' and ' + this.interests[1] + '.';
-          } else {
-            // if there are more than 2 interests, we loop through them
+          } 
+          */
+          else {
+            // if there are more than or 2 interests, we loop through them
             // all, adding each one to the main string followed by a comma,
             // except for the last one, which needs an and & a full stop 
             for(var i = 0; i < this.interests.length; i++) {
+              if(i === 0) {
+                string += this.interests[0];
+              }
               if(i === this.interests.length - 1) {
-                string += 'and ' + this.interests[i] + '.';
+                string += ' and ' + this.interests[i] + '.';
               } else {
-                string += this.interests[i] + ', ';
+                //commented below statement beacause between the 2nd last interests & the last interest
+                //string should be like this 'interests[n-1] and interests[n].' not as it was producing before 'interests[n-1], and interests[n].'.
+                
+                //string += this.interests[i] + ', ';
+                
+                string += ', ' + this.interests[i];
               }
             }
           }
-
           // finally, with the string built, we alert() it
           alert(string);
         };
